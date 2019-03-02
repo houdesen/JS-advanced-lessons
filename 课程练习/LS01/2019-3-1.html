@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var num1=20;
+    var num2=num1;
+    num1=10;
+
+    var object1={"username":"zhangsan"};
+    var object2=object1;
+    object2.username="lisi";
+    console.log(object1);
+
+    var arr1=[1,2,3,4];
+    var arr2=arr1;
+    arr2[2]=5;
+    console.log(arr2);
+    
+    var a=25;
+    var b=25;
+    console.log(a==b);//判断值是否相等
+    console.log(a===b);//判断值和类型是否相等
+
+    var obj3={};
+    var obj4={};
+    console.log(obj3==obj4);
+    console.log(obj3===obj4);
+
+    var x=Number("as123");
+    console.log(x);//NaN
+
+    var str="ab-sd-cf";
+    str.split("-",2);//以特定字符分割成数组
+</script>
+</html>
