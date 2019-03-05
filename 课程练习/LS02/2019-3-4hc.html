@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二次hc课表单</title>
+</head>
+<body>
+    <!--action表示要提交的地址;
+    method表示要提交的方式 -->
+    <form action="#" method="GET">
+        <input type="number" name="demonum" min="1" max="100" step="2"/>
+        <input type="submit"><!-- 提交按钮 -->
+        <br>
+        <input  type="email"  name="email" placeholder="请输入邮箱"  />
+        <input type="submit">
+        <br>
+        <input  type="url"  placeholder= "输入正确的网址" />
+        <br>
+        <input type="tel"  placeholder="输入电话" name="p"/> 
+        <br>
+        <input type="range" min="0" max="50" step="5" name="rdemo" value="0" />
+        <br>
+        <input type="date" name="datedemo" />
+        <br>
+        <input type="color"  name="col"/>
+        <br>
+        <input type= " search"  name="movie"/>
+
+
+
+
+        <form action="" method="get">
+            金庸武侠小说中的武功及招式: 
+            <input type="search" name="gongfu" list="names"/>
+            <datalist id="names">
+                <option></option>
+                <option>亢龙有悔</option>
+                <option>飞龙在天</option>
+                <option>神龙摆尾</option>
+                <option>弹指神通</option>
+                <option>九阴真经</option>
+            </datalist>
+            <select>
+                <option></option>
+                <option>亢龙有悔</option>
+                <option>飞龙在天</option>
+                <option>神龙摆尾</option>
+                <option>弹指神通</option>
+                <option>九阴真经</option>
+            </select>
+        </form>
+    </form>
+</body>
+</html>

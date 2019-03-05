@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二次课h5开发</title>
+</head>
+<body>
+    <script>
+    	//基本数据类型，在操作过程中，会有自动装箱的操作
+    	//生成临时对象，临时对象在使用完后会自动释放
+    	var num=10;
+    	num.toString();//装箱操作
+
+    	var num=10;
+    	var numObject=new Number(num);
+    	numObject.toString();
+    	alert(numObject);
+    	console.log(typeof numObject);
+    	console.log(typeof num);
+
+    	num.p=10;
+    	var t=num.p;
+    	console.log(t);
+
+
+
+    	(345.67).toFixed(1);//345.7;四舍五入保留一位小数
+    	num1=11.235;
+    	var num1Obj=new Number(num1);
+    	console.log(num1.toFixed(1));
+    	console.log(num1Obj);
+    	
+    	var n1 = 12345.6789;
+		console.log(n1.toFixed(2));//12345.68
+		console.log(n1.toPrecision(2));//1.2e+4(1.2*10^4)
+		console.log(n1.toFixed(3));//12345.679
+		console.log(n1.toPrecision(3));//1.23e+4
+		console.log(n1.toFixed(4));//12345.6789
+		console.log(n1.toPrecision(4));//1.235e+4
+		console.log(n1.toFixed(5));//12345.67890
+		console.log(n1.toPrecision(5));//12346
+
+		var mmm=10;
+		//基本数据类型，变量__proto__属性 == 变量的prototype属性
+		//num.__proto__ == Number.prototype;
+			// prototype 属性允许您向对象添加属性和方法。
+			// 当构造一个属性, 所有的 Number 对象将被添加上该属性及值。
+			// 当构造一个方法时，所有的 Number 对象都会有这个方法。
+			// 注意： Number.prototype 不允许引用一个单独的 Number 对象，但是可以使用 Number() 对象。
+			// 注意：prototype 型是一个全局对象的构造函数，可用于所有的JavaScript对象
+		console.log(Number.prototype);
+		console.log(mmm.__proto__);
+
+
+
+		//String
+		console.log("abcde".charAt(2));//c;索引返回特定位置的字符
+		console.log("B".localeCompare("A"));//1
+		console.log("A".localeCompare("A"));//0
+		console.log("A".localeCompare("B"));//-1
+
+		var str="a1bc*de*f";
+		console.log(str.charAt(2));//c
+		console.log(str.charCodeAt(2));//99返回特定位置Unicode码
+		console.log(str.slice(0,3));//a1b
+		console.log(str.slice(1,-1));//1bcde
+		console.log(str.substring(0,3));//a1b
+		console.log(str.substring(3,0));//a1b
+		console.log(str.split("*",2));//["a1bc", "de"]；split(特定的字符，限定元素个数)，将字符串以特定字符进行分割
+
+		var st=" 	aa bdd essd  ";
+		console.log(st.trim());//删除字符串两端的空格
+		console.log(st.split(" "));//["", "	aa", "bdd", "essd", "", ""]
+    </script>
+</body>
+</html>
