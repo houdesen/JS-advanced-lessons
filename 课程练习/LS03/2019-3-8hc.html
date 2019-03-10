@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0<input type="range" id="a" val>100+
+        <input type="number" id="b" value="50">=
+        <output name="x" for="a b"></output>
+    </form>
+     -->
+     <!-- autofocus属性自动聚焦，一个页面只能设置一次 -->
+    <form id="testform" method="get" action="">
+        姓&nbsp名<input type="text" name="name1" autofocus="autofocus" placeholder="请输入姓名" required>
+        <br>
+        <input type="file" multiple>
+        <br>
+        <fieldset>
+            <legend>
+                毕业生信息
+            </legend>
+        </fieldset>
+        <input type="submit" value="提交">
+    </form>
+    <br>
+    <textarea name="testform1" form="testform" id="" cols="30" rows="10"></textarea>
+</body>
+</html>

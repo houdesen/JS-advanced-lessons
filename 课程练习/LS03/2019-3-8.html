@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        字面量是具体的值（显示于字面的值）
+        标识符给函数和变量命名，以字母，下划线或$为开始，不能以数字开头
+        表达式代码中的基本单位，将会产生一个值
+        语句表示一个特定的行为
+        ES（ECMAScript）语言标准
+</body>
+<script>
+    //JavaScript在ES5的标准下没有块作用域
+    if(true){
+        var a=5;
+    }
+    a=2;
+    console.log(a);//undefined
+
+
+    for (var index = 0; index < 5; index++) {
+        
+    }
+    console.log(index);//5
+
+//如果变量不使用var声明，会自动提升为全局变量
+    function fun(){
+        // 'use strict'
+        username="zhangsan";
+
+    }
+    fun();
+    console.log(username);
+
+
+    function fn(){
+        //普通函数的内部this指向window对象
+        //严格模式下，this指向undefined
+        console.log(this);
+    }
+
+
+    function fn1(){
+        'use strict'
+        var result = (this === undefined?true:false);
+        return result;
+    }
+    console.log(fn1());
+    
+</script>
+</html>
