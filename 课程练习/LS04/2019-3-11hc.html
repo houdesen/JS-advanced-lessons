@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="lon"></div>
+    <div id="lat"></div>
+    <div id="accuracy"></div>
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition,errorPosition);
+        }
+        else{
+            document.write("您的浏览器不支持h5地理定位")
+        }
+
+        function getE(id){
+            return document.getElementById(id);
+        }
+
+        function showPosition(data){
+            getE("lon").innerHTML=("经度："+data.coords.longitude);
+            getE("lat").innerHTML=("纬度："+data.coords.latitude);
+            getE("accuracy").innerHTML=("精确度："+data.coords.accuracy+"米");
+        }
+
+        function errorPosition(err){
+            document.write(err.code+":"+err.message);
+        }
+    </script>
+</body>
+</html>
