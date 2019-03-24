@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // console.log(a);
+    // if (true) {
+    //     var a=1;
+    // }
+    // console.log(a);
+
+
+    // console.log(foo);
+    // //该种情况只会对定义进行提升
+    // var foo = function(){
+    //     console.log("hee");
+    // }
+
+
+    // var a=1;//全局变量
+    // function fn1(){
+    //     console.log(a);
+    //     var b=3;
+    //     var c=2;
+    //     function fn2(){
+    //         var c=30;
+    //         var d=7;
+    //         console.log(c);
+    //     }
+    // }
+    // fn2();
+    // console.log(c);
+    // console.log(d);
+
+//变量定义会确定变量的作用范围
+    var usename = "jack";
+    function foo1(){
+        // usename = "bill";
+        console.log(usename);//bill
+    }
+    foo1();
+    function bar(){
+        var usename = "mike";//不会影响foo1()内usename的值
+        foo1();
+        console.log(usename);//mike
+    }
+    bar();
+
+
+    //解决变量重复定义
+    (function(){
+        if(true){
+            var useID=300;
+        }
+    })
+
+
+
+    //上下文，当某行代码执行过程中，它的上下文环境包含了变量，函数调用栈，this指向
+</script>
+</html>
