@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .container{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            border: 3px solid red;
+        }
+        .tabs>span{
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .contents{
+            clear: both;
+        }
+        .contents>div{
+            height: 250px;
+            line-height: 250px;
+            font-size: 50px;
+            text-align: center;
+            display: none;
+        }
+        .contents>.show{
+            display: block;
+        }
+        .active{
+            background-color: #cdcdcd;
+        }
+    </style>
+    <script src="./js/1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <span class="active">导航0</span>
+            <span>导航1</span>
+            <span>导航2</span>
+            <span>导航3</span>
+        </div>
+    
+    <div class="contents">
+        <div class="show">导航0内容</div>
+    </div>
+</div>
+</body>
+<script>
+    (function fn(w,d){
+        var spanList = d.getElementsByTagName("span");
+        var show = d.getElementsByClassName("show")[0];
+        for(var i = 0; i <spanList.length; i++){
+            ( function(j){
+                spanList[i].onclick = function(){
+                show.innerText = "导航"+j+"内容";
+                }
+            })(i);
+            
+        }
+    })(window,document)//当参数传进函数，代码优化
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="div1" style="width: 100px;height: 200px;"></div> -->
+</body>
+<script>
+    // var div1 = document.getElementById("div1");
+    // var usename = "zhangsan";
+    // function foo(){
+    //     div1.onclick = function(){
+    //         this.innerHTML = usename;//查找三层，代码执行率低，尽量避免
+    //     }
+    // }
+    // foo();
+
+
+
+
+    // console.log("小明回家");
+    // var xx = ["书桌","书包","铅笔盒"];
+    // console.log("在家-做作业中");
+    // function goToStore(){
+    //     var yy = ["文具店老板","出售的文具"];
+    //     console.log("在文具店中-买文具中");
+    //     console.log("在文具店中-买文具中  发现没带钱");
+    //     goToBank();
+    //     console.log("在文具店-买好文具  返回家");
+    // }
+    // function goToBank(){
+    //     var zz = ["银行职员","柜员机"];
+    //     console.log("在银行-取钱  返回文具店");
+    // }
+    // console.log("在家-做作业中  发现笔没油了");
+    // goToStore();
+    // console.log("在家-继续写作业");
+
+
+
+    //立即执行的函数表达式：(防止变量重名，共享)
+    // (function 函数名(参数){
+    //     //函数体
+    // }(实参));
+    // (function max(x,y){
+    //     console.log(x>y?x:y);
+    // }(2,3));
+    // (function max1(x,y){
+    //     console.log(x>y?x:y);
+    // })(2,3);
+
+
+    function foo(){
+        var arr = [];
+        for(var i=0;i<10;i++){
+            arr[i]=function(){
+                return i;
+            }
+        }
+        return arr;
+    }
+    var arr = foo();
+    arr[0]();//10,先执行函数循环，在对形参进行赋值
+
+    function foo(){
+        var arr = [];
+        for(var i=0;i<10;i++){
+            arr[i]=(function(){
+                return i;
+            })();
+        }
+        return arr;
+    }
+    var arr = foo();
+    arr[0]();//0
+
+    function foo(){
+        var arr = [];
+        for(var i=0;i<10;i++){
+            //形成10个作用域，作用域内的j值各不相同，并且不共享
+            (arr[j]=function(){
+                return j;
+            })(i);
+        }
+        return arr;
+    }
+    var arr = foo();
+    arr[0]();//0
+</script>
+</html>
