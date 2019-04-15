@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj = {x:0};
+    Object.defineProperty(obj,"y",{
+        value:1,
+        enumerable:true,
+        writable:true,
+        configurable:true
+    })
+    //获取特定对象，特定属性的属性描述符
+    Object.getOwnPropertyDescriptor(obj,"x");
+
+
+    var obj1 = {_x:1};
+    Object.defineProperties(obj,{
+        y:{value:2,writable:true,enumerable:true},
+        z:{value:2,writable:true,enumerable:true},
+        x:{
+            get:function(){return this._x;},
+            set:function(val){
+                this._x = val;
+            }
+        }
+    });
+
+    var o1 = {};
+    Object.defineProperty(o1,"x",{
+        value:1,
+        writable:true
+    });
+    //Object.create(o1)以o1为原型对象，生成一个新对象
+    var o2 = Object.create(o1);
+    console.log(o2.__proto__ == o1);
+    o2.x = 2;
+    delete o2.x;
+    console.log(o2.x);
+    //delete删除属性时，只能删除自身所具有的属性
+
+
+//o2.__proto__.x与o1是完全相同的对象的引用，修改其中一个，另一个也会改变
+    o2.__proto__.x = 3;
+    console.log(o2.x);
+    console.log(o1.x);
+</script>
+</html>

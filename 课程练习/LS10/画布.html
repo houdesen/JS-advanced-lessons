@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+</head>
+<body>
+    <canvas id="canvas1" width="500" height="500" style="border: 1px solid red;background: rgb(247, 245, 245)">
+        您的浏览器不支持canvas
+    </canvas>
+    <canvas id="canvas2" width="400" height="400" style="border: 1px solid red;">
+            您的浏览器不支持canvas
+    </canvas>
+    <canvas id="canvas3" width="400" height="400" style="border: 1px solid red;">
+            您的浏览器不支持canvas
+    </canvas>
+    <canvas id="canvas4" width="400" height="400" style="border: 1px solid red;">
+            您的浏览器不支持canvas
+    </canvas>
+</body>
+<script>
+    var elem = document.getElementById('canvas1');
+    var context = elem.getContext("2d");
+    context.beginPath();
+    context.moveTo(100,100);
+    context.lineTo(300,300);
+    context.lineTo(100,300);
+    context.lineWidth = 5;
+    context.strokeStyle = "red";
+    context.fillStyle = "pink";
+    context.closePath();
+    //状态绘图
+    context.fill();
+    context.stroke();
+
+
+    context.beginPath();
+    context.moveTo(200,100);
+    context.lineTo(400,300);
+    context.strokeStyle = "blue";
+    context.closePath();
+    //状态绘图
+    context.fill();
+    context.stroke();
+
+
+    //弧
+    context.beginPath();
+    context.arc(200,200,200,0*Math.PI,1*Math.PI,true)
+    context.closePath();
+    context.lineWidth = 4;
+    context.strokeStyle = "blue";
+    context.stroke();
+
+
+
+    var elem = document.getElementById('canvas2');
+    var context = elem.getContext("2d");
+    for(var i = 0;i <= 8;i++){
+        context.strokeStyle = "#32cd32";
+        context.beginPath();
+        context.arc(0,400,i*50,0*Math.PI,1.5*Math.PI,true);
+        context.stroke();
+    }
+
+//太极图
+    var elem = document.getElementById('canvas3');
+    var context = elem.getContext("2d");
+    context.beginPath();
+    context.arc(200,200,80,0.5*Math.PI,1.5*Math.PI);
+    context.fillStyle = "black";
+    context.stroke();
+    context.fill();
+
+    context.beginPath();
+    context.arc(200,200,80,0.5*Math.PI,1.5*Math.PI,true);
+    context.fillStyle = "#fff";
+    context.stroke();
+    context.fill();
+
+    context.beginPath();
+    context.arc(200,160,40,0.5*Math.PI,1.5*Math.PI);
+    context.fillStyle = "#fff";
+    context.stroke();
+    context.fill();
+
+    context.beginPath();
+    context.arc(200,240,40,0.5*Math.PI,1.5*Math.PI,true);
+    context.fillStyle = "black";
+    context.stroke();
+    context.fill();
+
+    context.beginPath();
+    context.arc(200,160,4,0*Math.PI,2*Math.PI);
+    context.fillStyle = "black";
+    context.stroke();
+    context.fill();
+
+    context.beginPath();
+    context.arc(200,240,4,0*Math.PI,2*Math.PI,true);
+    context.fillStyle = "#fff";
+    context.stroke();
+    context.fill();
+
+
+    //正方形
+    var elem = document.getElementById('canvas4');
+    var context = elem.getContext("2d");
+    context.rect(100,100,200,400);
+    context.lineWidth = 3;
+    context.strokeStyle = "blue";
+    context.stroke();
+    context.fill();
+    context.clearRect(120,120,10,20);
+    context.stroke();
+</script>
+</html>

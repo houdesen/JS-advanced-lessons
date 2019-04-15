@@ -8,13 +8,13 @@
 
 //闭包：通过返回函数(fn1)内部定义的函数(fn2),来访问fn1内部的局部变量(x)
 // function fn1(){
-//     var x=1;
+//     var x=1;//词法作用域
 //     function fn2(){
 //         return ++x;
 //     }
 //     return fn2;
 // }
-// var fn3=fn1();
+// var fn3=fn1();//fn3形成一个闭包
 // console.log(fn3());//2
 // console.log(fn3());//3
 
