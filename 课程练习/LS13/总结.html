@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    
+<script>
+    // 1.立即执行函数：
+    // ①防止变量污染
+    // ②防止变量的非期望共享
+        (function(){
+
+        })();
+
+        for(var i = 0;i < 3;i++){
+            // ①给元素绑定事件，回调函数
+            // ②延迟执行、定时执行
+            (function(){
+
+            })(i)
+        }
+
+
+
+    //2.闭包，JavaScript存在的代码运行机制
+    //外层函数fn1,内层函数fn2
+        function fn1(){
+            var x = 0;
+            function fn2(){
+                return x++;
+            }
+            return fn2;
+        }
+        var result = fn1();
+        result();//1
+        result();//2，x一直不释放
+</script>
+</html>

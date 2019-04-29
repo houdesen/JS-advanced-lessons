@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1 = ['a','b','d'];
+        var arr2 = arr1;
+        arr1[0] = 'e';
+        arr2[0] = 'c';
+        console.log(arr2[0]);    
+        console.log(arr1[0]);
+        //数组是引用型变量,
+        //for(var i in arr)用来遍历对象
+
+        var table = new Array(5);
+        for (var i = 0; i < table.length; i++) {
+            table[i] = new Array(5);
+        }
+        for (var row = 0; row < table.length; row++) {
+            for(var col = 0; col<table[row].length;col++){
+                table[row][col] = row*col;
+            }
+            
+        }
+        var p = table[4][2];
+        console.log(p);
+
+        /*
+            1.判断方法是静态方法还是原型方法
+            2.确定这个方法是用来做什么的，
+                （1）是否会对原变量产生影响
+                （2）最终作用效果是什么样的
+            3.判断方法的参数分别是什么
+                （1）如果参数是回调函数的形式，判断回调函数的参数是什么
+                （2)如果是值类型参数，判断参数所代表的意义
+            4.确定方法调用的返回值
+        */
+       var arr = [1,4,7,12,3];
+       function com(a,b){
+           return a-b;
+       }
+        arr.sort(com);
+        console.log(arr);
+    </script>
+</body>
+</html>

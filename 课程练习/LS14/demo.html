@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    /*
+    一、一般函数中的this
+    */
+    //1.非严格模式下，this指向window对象
+    //2.严格模式下，this是undefined
+    //3.this是谁，取决于函数调用的主体
+    function thisTest(){
+        console.log(this);//全局
+        console.log(this == window);
+    }
+    thisTest();
+    function thisTest1(){
+        'use strict';
+        console.log(this);
+        console.log(this == undefined);
+    }
+    thisTest1();
+
+    /*
+    二、对象方法中的this
+    */
+    var point = {
+        x:0,
+        y:1,
+        moveTo: function(x,y){
+            this.x = x;
+            this.y = y;
+        }
+    }
+    //1.直接定义在对象下的方法，调用主体就是当前对象
+    //2.前提没有函数嵌套
+    point.moveTo(3,5);
+    console.log(point.x,point.y);
+
+    /*
+    三、构造函数中的this
+    */
+    function Point(x,y){
+        this.x = x;
+        this.y = y;
+        this.moveTo = function(x,y){
+            this.x = x;
+            this.y = y;
+        }
+    }
+    var p = new Point(1,2);
+    //1.this指向函数调用的主体
+    console.log(p.x,p.y);
+    p.moveTo(5,4)
+    console.log(p.x,p.y);
+
+    /*
+    四、间接调用中的this
+    */
+    var objA = {name:'aa',x:1};
+    var objB = {name:'bb',x:2};
+    function test(m){
+        this.x=m;
+        console.log(this.name,this.x);
+    }
+    objA.fun = test;
+    objA.fun(4);
+    //方法A.call(对象)；切换方法A的调用主体，this指向函数的调用主体
+    //call(切换到要调用的对象，arg1，arg2，……);
+    //方法B.apply(要切换的对象,[arg1,arg2,...]);
+    objA.fun.call(objB,5);
+    objA.fun.apply(objB,[5]);//切换函数调用主体
+
+
+    var pp = {
+        x:0,
+        y:1,
+        moveTo:function(x,y){
+            /*
+            1
+            */
+            // console.log(this);
+            // var that = this//软绑定，使this指向正确
+            // function moveToX(x){
+            //     console.log(this);
+            //     that.x = x;
+            // }
+            // function moveToY(y){
+            //     that.y = y;
+            // }
+            // // //切换moveToX函数的调用主体，并且执行moveToX；0
+            // moveToX(x);
+            // moveToY(y);
+
+            /*
+            2
+            */
+            // console.log(this);
+            // function moveToX(x){
+            //     console.log(this);
+            //     this.x = x;
+            // }
+            // function moveToY(y){
+            //     this.y = y;
+            // }
+            // // //切换moveToX函数的调用主体，并且执行moveToX；0
+            // moveToX.call(this,x);
+            // moveToY.call(this,y);
+
+            /*
+            3
+            */
+            function moveToX(){
+                this.x = x;
+            }
+            function moveToY(){
+                this.y = y;
+            }
+            //函数.bind(对象)切换函数的调用主体
+            //生成一个新的函数，并且不会立即执行
+            console.log(moveToX.bind(this));
+            moveToX.bind(this)();
+            moveToY.bind(this)();
+        }
+    }
+    //对象内部的函数，存在嵌套关系，内部函数的this指向的是window
+    pp.moveTo(10,10);
+    console.log(pp);
+</script>
+</html>

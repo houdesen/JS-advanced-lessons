@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var superobj = {
+            x:1,
+            y:2
+        };
+        var superobj_first = Object.create(superobj);
+        var superobj_second = Object.create(superobj);
+        superobj_first.__proto__.x = 5;
+        console.log(superobj_second.x);
+
+
+
+        function Person(name){
+            this.name = name;
+        }
+        Person.prototype.age = 20;
+        Person.prototype.show = function(){
+            console.log(this.name);
+        }
+        function student(id){
+            this.id = id;
+        }
+        /*
+            person  name属性mike,
+            person.__proto__.age
+            person.__proto__.show
+        */
+        student.prototype = new Person("mike");
+        console.log(student.prototype);
+        var s1 = new student(2017011452);
+        var s2 = new student(2017011453);
+        //s1本身上面没有age，s1.__proto__ == student.prototype
+        //student.prototype = person;person对象上没有age属性
+        //s1.__proto__.__proto__ == person.__proto__
+        //person.__proto__ == Person.prototype
+        console.log(s1.id,s2.id);
+        console.log(s1.age,s2.age);//变量名共享，改变其中一个，都会改变
+        console.log(s1.name,s2.name);
+        console.log(s1.__proto__.age);
+        console.log(s1.__proto__.__proto__.age); 
+        console.log(s1);
+        console.log(s1.__proto__);
+        console.log(s1.__proto__.__proto__);  
+               
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="forminput" id="username">
+    <script>
+        (function(d,w){
+            //构造函数，构造函数会有配置参数
+            function inputIdentify(inputId){
+                this._init(inputId);
+                this._effect();
+
+            }
+            inputIdentify.prototype._init = function(inputId){
+                var inputObject = d.getElementById(inputId);
+                this.inputObject = inputObject;
+            }
+            inputIdentify.prototype._effect = function(){
+                this.inputObject.onblur = function(){
+                    alert("失去焦点");
+                }
+                this.inputObject.onfocus = function(){
+                    alert("获得焦点");
+                }
+            }
+            w.inputIdentify = inputIdentify;
+        })(document,window);
+       var input1 = new inputIdentify("username");
+       
+    </script>
+</body>
+</html>

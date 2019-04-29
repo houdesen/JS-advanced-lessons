@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        };
+        Person.prototype.showName = function(){
+            console.log(this.name);
+        };
+        function Student(name,age,id){
+            Person.call(this,name,age);
+            this.id =id;
+        }
+        // Student.prototype.__proto__ = Person.prototype;
+
+        //var p1 = Object.create.(Person.prototype);
+        //Student.prototype = p1;
+        //Student.prototype.constructor = Student;
+        Student.prototype = Object.create(Person.prototype);
+        console.log(Student.prototype.constructor);
+        Student.prototype.constructor = Student;
+        console.log(Student.prototype.constructor);
+        var s1 = new Student("zzz",22,2014521);
+        var s2 = new Student("aaa",21,1010101);
+        console.log(s1,s2);
+        // console.log(s1.showName(),s2.showName());
+        // console.log(s1.showName());
+        // s1.showName();
+    </script>
+</body>
+</html>
