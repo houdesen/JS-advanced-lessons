@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*
+        本地时间 :当前所处时区的标准时间
+        世界标准时：UTC（格林威治时间） GMT
+    */
+
+    var second = Date.parse("2019-05-05");
+    console.log(second);
+    var date = new Date(second);
+    console.log(date);
+
+
+    var date2 = new Date();
+    var second2 = Date.parse(date2);
+    console.log(second>second2);
+    </script>
+</body>
+</html>

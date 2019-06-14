@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="../../../h5课程资料/hs/17.CSS3动画/第17章/images/img_1.jpg" alt=""> -->
+    <div>层一</div>
+    <div>层二</div>
+    <div>层三</div>
+</body>
+<script src="../../jquery-3.4.1.min.js"></script>
+<script>
+    // $("img").mouseover(function(){
+    //     $(this).css("border","2px solid red");
+    // });
+
+    $("div").css("width","200px");
+    $("div").css("height","30px");
+    $("div").css("background","#ddd");
+    $("div").css("margin-top","10px");
+    $("div").mouseover(function(){
+        $(this).css("background","blue");
+    }).mouseleave(function(){
+        $(this).css("background","#fff");
+    }).click(function(){
+        $(this).css("background","red");
+    })
+</script>
+</html>

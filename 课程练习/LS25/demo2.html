@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //使用static定义静态方法
+        //静态方法通过类调用
+        //静态方法内部的this指向本身
+        class Point{
+            constructor(){
+                this.x = 1;
+                this.y = 1;
+            }
+            show(){
+                console.log(this.x);
+            }
+            showy(){
+                console.log(this.y);
+            }
+            static showPoint(){
+                console.log(this);
+            }
+        }
+        console.log(typeof Point)
+        let p = new Point();
+        p.show();
+        Point.showPoint();
+    </script>
+</body>
+</html>

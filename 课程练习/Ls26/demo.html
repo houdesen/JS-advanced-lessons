@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function createIterator(arr){
+        var i = 0;
+        return {
+            next:function(){
+                return i<arr.length?{value:arr[i++],done:true}:{value:undefined,done:false}
+            }
+        }
+    }
+    let myiterator = createIterator([1,2,3]);
+    console.log(myiterator.next());
+    console.log(myiterator.next());
+
+
+    let arr = [1,2,3,4];
+    for(let a of arr){
+        console.log(arr[a]);
+    }
+    let m1 =  new Map([["1",2],["2",4]]);
+    for(let b of m1){
+        console.log(m1[b]);
+    }
+
+    //判断数据是否能被遍历器遍历,不能直接对对象应用遍历器
+    let arr2 = [1,2,3];
+    console.log(arr[Symbol.iterator]);
+</script>
+</html>

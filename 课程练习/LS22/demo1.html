@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //同步
+        var i = 0;
+        console.log(i);
+        for (let index = 0; index < 10; index++) {
+            console.log(index);
+            
+        }
+
+        //异步(不会阻塞程序的执行，在满足特定条件时，会反馈到主线程)
+        window.onload = function(){
+            console.log("页面加载完成");
+        }
+        console.log("主线程");
+        var a = 0;
+        var intervalId = setInterval(function(){
+            console.log(a++)
+        },3000);
+
+
+
+        /*
+            ajax可以以异步的方式实现前后端数据的交互
+            前端通过发起ajax请求的方式来从服务器端获取数据
+            请求方式有 get请求 和 post请求
+        */
+    </script>
+</body>
+</html>

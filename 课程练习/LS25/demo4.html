@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  继承的实现方式  */
+        let obj1 = {"x":1};
+        let obj2 = Object.create(obj1);
+
+
+        // let obj3 = {"y":2};
+        // obj4.__proto__ = obj3;
+
+        function fn1(){
+            this.x = 1;
+        }
+        fn1.prototype.show = function(){
+            console.log(this.x);
+        }
+        let obj5 = new fn1();
+
+
+
+        function parent(x,y){
+            this.x = x;
+            this.y = y;
+        }
+        function child(x,y,z){
+            parent.call(this,x,y);
+            this.z = z;
+        }
+        let p1 = new child(1,2,3);
+
+
+
+        class Parent{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+        }
+        class Child extends Parent{
+            constructor(x,y,z){
+                super(x,y);
+                this.z = z;
+            }
+            show(){
+                console.log(this);
+            }
+        }
+        let c = new Child(1,2,3);
+
+
+        var date = new Date();
+        console.log(date.getDate());
+    </script>
+</body>
+</html>

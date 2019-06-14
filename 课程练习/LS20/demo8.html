@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container{
+            height: 400px;
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img style="width:200px;height:100px" src="../../../Github-Pages/img/zhanqiao.jpg" alt="" id="img1">
+    </div>
+    <div id="btnlist">
+        <button id="after">after</button>
+    </div>
+</body>
+<script src="../../jquery-3.4.1.min.js"></script>
+<script>
+
+    /*
+        1.向特定元素的后面插入新的节点
+            after() insertAfter()
+        2.向特定元素的前面插入新的节点
+            before()    insertBefore()
+        3.向特定元素标签内部最后的位置添加新的节点
+            append()    appendTo()
+        4.向特定元素标签内部最前的位置添加新的节点
+            prepend()   prependTo()
+    */
+    $("#after").click(
+        function(){
+            var $img2 = $("<img src='../../../Github-Pages/img/zhanqiao.jpg'/>");
+            $("#img1").after($img2);
+        }
+    )
+</script>
+</html>

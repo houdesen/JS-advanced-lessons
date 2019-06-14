@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 200px;height: 200px;position: relative;display: block;">
+        <div style="width: 200px;height: 200px;background:#00ff40; position:absolute"></div>
+        <div style="width: 200px;height: 200px;background:#ffff40; position:absolute"></div>
+        <div style="width: 200px;height: 200px;background:#0ffff0; position:absolute"></div>
+    </div>
+</body>
+<script>
+    var reg = /\d/gi;
+    var str = "asd54vd7";
+    var a = str.match(reg);
+    var b = reg.test(str);
+    var c = str.replace("a","c");
+    console.log(a,b,c);
+
+    /*
+        /d数字
+        /s空格
+        . 任意字符
+        /w [A-Za-z0-9_]
+        ^a 以特定字符起始
+        b$ 以特定字符结尾
+        a* 字符出现0次 多次
+        a+ 字符出现1次 多次
+        a？字符出现0次 1次
+    */
+
+/*
+    分组可以看作当前正则表达式的子规则，分组匹配得到的内容，可以在exec方法调用的返回结果查看
+*/
+    var reg1 = /(abc\d)(\drg)\d/ig;
+    var str1 = "abc12rg2";
+    var result = reg1.exec(str1);
+    console.log(result);
+
+    /*
+        反向引用，通过 \m 来引用前面出现的分组
+        m表示前面出现的第几个分组
+    */
+
+    var reg2 = /(ss)a\1/gi;
+    // var reg3 = /(\d)a(\d)/gi;
+    var str2 = "ssa1ssss";
+    console.log(str2.replace(reg2,"x"));
+</script>
+</html>

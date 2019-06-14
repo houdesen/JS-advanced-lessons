@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i = 0;
+        if(true){
+            var i = 1;
+        }
+        console.log(i);
+
+        //let声明的变量会拥有块级作用域{}
+        let ii = 0;
+        if(true){
+            let ii = 1;
+        }
+        console.log(ii);
+
+        //之前var声明变量的方式，只有一个全局变量i，所有延期执行都共同作用在一个i上
+        //let声明变量的方式，会形成代码块作用在不同i上
+
+        for (let index = 0; index < 3; index++) {
+            setTimeout(function(){
+                console.log(new Date(),index);
+            },i*3000);
+            
+        }
+
+        //const声明的变量不可修改，并且要赋初值
+        const pi = 3.1415926;
+
+        //let const在声明前是不可用的
+
+    </script>
+</body>
+</html>

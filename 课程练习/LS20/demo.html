@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+
+    </ul>
+    <script>
+        /*
+            json字符串和js对象可以进行相互转换，并且js对象可以很容易的渲染到页面中
+            所以可以将从后天获取到的json数据转换为js对象，并在页面中渲染
+        */
+       var jsObject = {"usename":"zhangsan","age":"20"};
+       var ulObject = document.getElementById("list");
+       for(var i in jsObject){
+           var liNode = document.createElement("li");
+           liNode.innerHTML = i + "" + jsObject[i];
+           ulObject.appendChild(liNode);
+       }
+    </script>
+</body>
+</html>

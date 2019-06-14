@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa{
+            border:3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <img src="./美图481036_小猫.jpg" id="img1" alt="">
+    <button id="btn">改变属性</button>
+</body>
+<script src="../../jquery-3.4.1.min.js"></script>
+<script>
+    $("#btn").click(function(){
+        $("#img1").attr("src","./美图481029_被猫.gif");
+        $("#img1").attr("title","这是一张图片");
+        alert($("#img1").attr("title"));
+        //移除特定属性
+        $("#img1").removeAttr("title");
+    })
+    $("#img1").addClass("aa");
+    $("#img1").removeClass("aa");
+</script>
+</html>

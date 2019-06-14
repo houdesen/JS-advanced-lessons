@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="绑定点击事件" id="btn1">
+    <input type="button" value="绑定点击事件" id="btn2">
+    <input type="button" value="绑定点击事件" id="btn3">
+</body>
+<script src="../../jquery-3.4.1.min.js"></script>
+<script>
+    // $("#btn1").click(function(){
+    //     alert("按钮绑定");
+    // })
+
+    $(":button").click(function(){
+        alert("按钮绑定");
+    })
+</script>
+</html>

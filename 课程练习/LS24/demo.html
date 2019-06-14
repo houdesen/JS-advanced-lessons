@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let[, , third] = [1,2,3];
+        console.log(third);
+
+        //... 理解为剩余运算符，其他元素匹配完成后剩余的元素组成数组赋值
+        let[head,...tail] = [1,2,3];
+        console.log(head,tail);
+
+
+        /*
+            当左侧结构元素个数大于右侧数组元素个数时，
+            未匹配的变量是undefined，
+            ...匹配的是空数组
+        */
+        let[d,e,...f] = ['a'];
+        console.log(d,e,f);
+
+
+        //按键名匹配，没有的是undefined
+        let{bor,foo,other} = {foo:"foo1",bor:"bar1"};
+        console.log(bor,foo,other);
+
+        //对象解构赋值，根据键名来进行匹配，然后赋值
+        let{baz1} = {fo:"fo1",bar1:"barr"};
+        console.log(baz1);
+
+        let{fo:bar1} = {fo:"fo1",bar1:"barr"};
+        console.log(bar1);
+
+
+
+        
+    </script>
+</body>
+</html>

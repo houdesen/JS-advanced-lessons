@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td>
+                <input type="text" name="username" id="username">
+                <span class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td>
+                <input type="password" name="pwd">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="登录">
+            </td>
+        </tr>
+    </table>
+</body>
+<script src="../../jquery-3.4.1.min.js"></script>
+<script>
+    /*
+        $(选择器).val();
+        $("html标记");
+        $(选择器).append();向选中元素内部添加一个新元素
+        $(选择器).remove();将特定元素从页面中移除
+
+
+        val()用于设置或者获取表单元素的value值
+        html()用于设置或者获取双标记标签元素的标签内部的html内容
+        css({
+            "样式名":"样式值"
+        })
+    */
+    $("#username").blur(function(){
+        // var inputVal = $(this).val();
+        // var errorTip = $("<span class='error'>用户名不能为空</span>");
+        // if(inputVal == ""){
+        //     $(this).parent().append(errorTip);
+        // }else{
+        //     $(".error").remove();
+        // }
+        var inputVal = $(this).val();
+        if(inputVal == ""){
+            $(".error").html("用户名不能为空");
+            $(".error").css({
+                "color":"red",
+                "font-size":"5px"
+            });
+        }else{
+            $(".error").remove();
+        }
+    })
+</script>
+</html>

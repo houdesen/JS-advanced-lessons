@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../../jquery-3.4.1.min.js"></script>
+    <script>
+        console.log(Array.from("abcdef"));
+        var str = Array.from("abcdef");
+        console.log(str);
+
+        function fn1(){
+            console.log(arguments);
+        }
+        fn1(1,2,3);
+
+        console.log(Array.of(1,2,3));
+
+
+        //复制数组里面的元素到数组的特定位置上
+        //arr1.copyWithin(target,staart,end)
+        //target:复制的目标位置
+        //start:复制元素的起始位置
+        //end:复制元素的结束位置(不计算在内)
+        var arr1 = [1,2,3,4,5,6];
+        console.log(arr1.copyWithin(0,2,5));
+
+
+        /*
+            Array.prototype.find
+            遍历数组元素，验证是否满足回掉函数的验证条件
+            （回调函数的返回值）返回满足条件的第一个数组元素
+
+            Array.prototype.findIndex
+            遍历数组元素，验证是否满足回掉函数的验证条件
+            （回调函数的返回值）返回满足条件的第一个数组元素的索引值
+        */
+        var arr = [10,20,30,40,50,60];
+        let el = arr.find(function(element){
+            return element>20;
+        })
+        console.log(el);
+
+        let ell = arr.findIndex(function(element){
+            return element>20;
+        })
+        console.log(ell);
+
+
+        /*
+            fill(value,start,end)
+            向数组特定的起始位置和结束位置添加value
+            keys()获取键的值
+            values获取具体的值
+        */
+
+
+
+        let usename = "lily";
+        //ES6里面对象的结构进行了简化
+        //属性可以写成变量的形式
+        // 函数省略function，函数名(){}
+        let obj = {
+            usename,
+            hello(){
+                console.log("hello,"+this.usename);
+            }
+        }
+
+
+
+        let bar = "foo";//名字
+        let obj1 ={
+            [bar]:"male"//值
+        }
+        console.log(obj1);
+
+
+
+
+        let obj2 = {usenamer:"zhangsan"};
+        let obj4 = {age:20};
+        console.log(Object.assign(obj2,obj4));
+
+
+
+        var obj3 = {
+            objname:"obj3",
+            showName:function(){
+                var intervalId = setInterval(()=>{
+                    console.log(this);
+                    console.log(this.objname);
+                },3000)
+            }
+        }
+        obj3.showName();
+
+//spread扩展操作符
+//rest的逆过程，将一个集合打散作为单个元素
+        function fn(x){
+            console.log(x);
+            console.log(arguments);
+        }
+        fn(1,...[2,3]);
+        fn(1,2,3)
+    </script>
+</body>
+</html>

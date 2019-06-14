@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1 = ['a','b','c','d'];
+        /*
+            forEach(callback,thisArg);
+            callback(element,index,arr);
+                element遍历数组每次取到的数组元素值
+                index遍历数组每次取到的数组元素索引
+                arr操作数组
+            thisArg可以指定回调函数内部this的指向
+        */
+       arr1.forEach(function(element,index,arr2){
+           console.log(element,index,arr2);
+           window.x=10;
+       },window);
+       
+       var arr3 = [10,20,30,40];
+       var result = arr3.every(function(value){
+           return value>5;
+       });
+       console.log(result);
+
+       var arr4 = [1,2,3];
+       var arr5 = arr4.map(function(value){
+           return value*5;
+       })
+       console.log(arr5);
+    </script>
+</body>
+</html>

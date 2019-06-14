@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../../jquery-3.4.1.min.js"></script>
+    <script>
+        //Symbol生成的变量是唯一，不需要new
+        let s1 = Symbol("foo");
+        let s2 = Symbol("foo");
+        console.log(s1 == s2);
+
+        //Symbol作为对象的属性名，永远不会重复对象[Symbol]
+        let obj = {};
+        obj[s1] = "hello";
+        obj.s1 = "word";
+        let obj1 = {
+            [s1]:"hello"
+        }
+        console.log(obj[s1],obj.s1);
+
+        //Symbol.for() 首先查看是否有以此参数为名分Symbol值
+        let s3 = Symbol.for("bar");
+        let s4 = Symbol.for("bar");
+        console.log(s3 == s4);
+    </script>
+</body>
+</html>

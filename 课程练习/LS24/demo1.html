@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //字符串
+        // let str = new String("abcdef");
+        // let[a, b, c, f] = str;
+        // console.log(a,b,c,f);
+
+        //number
+        let{toString:s1} = 123;
+        console.log(s1);
+        console.log(Number.prototype.toString == s1);
+
+
+
+        function fn1({x=0,y=0}={}){
+            return [x,y];
+        }
+        console.log(fn1({x:3,y:8}));
+
+
+
+        let[m,n] = ["a","b"];
+        [m,n] = [n,m];
+        console.log(m,n);
+
+
+        function example(){
+            return [1,2,3];
+        }
+        let[a,b,c] = example();
+        console.log(a,b,c);
+
+        let json = {
+            "usename":"zhang",
+            "age":"20",
+            "courselist":["1","2"]
+        }
+        //JSON MATH都是对象，没有构造函数
+        let jsonstr = JSON.stringify(json);
+        console.log(jsonstr);
+        json = JSON.parse(jsonstr);
+
+        let{usename} = json;
+        console.log(usename);
+
+        let str = "adfsa";
+        for(let i of str){
+            console.log(i);
+        }
+        console.log(str.repeat(4));
+
+
+
+        let reg1 = /xyz/ig;
+        let reg2 = new RegExp("xyz","ig");
+        let reg3 = new RegExp(/xyz/ig);
+        let reg4 = new RegExp(/xyz/ig,"i");
+        console.log(reg1.flags);
+
+
+        let str1 = "aa-aaa-a";
+        let reg5 = /a+/g;
+        let reg6 = /a+/y;
+        console.log(reg5.exec(str1));
+        console.log(reg5.exec(str1));
+        console.log(reg6.exec(str1));
+        //上次匹配结果的索引位置
+        reg6.lastIndex=0;//3
+        console.log(reg6.exec(str1));
+        //根据正则对象,sticky属性判断是否设置了y
+        console.log(reg6.sticky);
+    </script>
+</body>
+</html>

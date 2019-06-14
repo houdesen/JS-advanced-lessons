@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			/ 正则表达式的文本部分/正则表达式的标识符
+			[xzy]匹配中括号中任意字符
+			[^xzy]匹配中括号中任意字符
+			标识符：
+				i：是否忽略大小写
+				g：是否全局的检索,获取的所有的匹配项还是只获取一个
+		*/
+		var reg1 = /[bcf]at/;
+		var reg2 = new RegExp(/[bcf]at/,"gi");
+		var reg3 = new RegExp(/[bcf]at/,"gi");
+		var arr = "a fat bat , a fAT cat".match(reg1);
+		// console.log(arr);
+
+		var str = "abcdef adf kill ad adffff affc";
+		var reg4 = /adf*/ig;
+		
+		var arr1 = str.match(reg4);
+		// console.log(arr1);
+
+		var reg5 = /a..c/ig;//.表示任意字符
+		var arr3 = str.match(reg5);
+		// console.log(arr3);
+
+
+
+		/*
+			\d:表示任意的阿拉伯数字（[0-9]）
+			\D:表示在特定位置上不是任意的阿拉伯数字
+		*/
+		var str1 = "a2c a3c abc";
+		var reg6 = /a\dc/ig;//阿拉伯数字
+		var reg7 = /a\Dc/ig;//阿拉伯数字
+		var arr4 = str1.match(reg6);
+		var arr5 = str1.match(reg7);
+		console.log(arr4,arr5);
+
+		/*
+			^匹配开始位置
+			$匹配结束的位置
+		*/
+		var re = /^a[0-9]/ig;
+		var re1 = /[0-9]z$/ig;
+		var st = "a1c2d3s5z";
+		var ar = st.match(re);
+		var ar1 = st.match(re1);
+		console.log(ar,ar1,re.test(st));
+
+		//?表示之前的字符出现0次或1次
+		//+表示之前的字符出现1次或多次
+		var r = /ab?/ig;
+		var r1 = /ab+/ig;
+		var re4 = /ac{1,3}/ig;
+		var s = "ab ac aacc accc"
+		s.replace(r,"x");
+		console.log(s.replace(r,"x"));
+	</script>
+</body>
+</html>
